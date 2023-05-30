@@ -57,8 +57,17 @@ class Square:
         if self.__size == 0:
             print()
         else:
+            position1, position2 = self.__position
             num = 0
+
+            for m in range(position2):
+                print()
             while num < self.__size:
+                n = 0
+                while n < position1:
+                    print(" ", end='')
+                    n += 1
+
                 numeral = 0
 
                 while numeral < self.__size:
