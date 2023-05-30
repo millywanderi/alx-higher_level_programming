@@ -31,7 +31,7 @@ class Square:
             self.__size = value
 
     @property
-    def position(self, value):
+    def position(self):
         """Gets class private attribute to be used"""
         return self.__position
 
