@@ -6,11 +6,11 @@ class Square:
 
     """A class defining a square"""
 
-    def __init__(self, size=0):
+    def __init__(self, size) -> None:
         """
         Instantiates class attributes
 
         Attributes:
-             __size: size of square
+             size: size of square
         """
-        self.__size = __size
+        self.__size = size
