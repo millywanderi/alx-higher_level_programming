@@ -64,13 +64,18 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return sln
         else:
-            for m in range(self.__height):
-                sln += (str(self.print_symbol) * self.__width) + '\n'
-                return sln[:-1]
+            str_symbol = str(self.print_symbol)
+            for m in range(self.__height - 1):
+                sln += (str_symbol * self.__width) + '\n'
+            sln += str_symbol * self.__width
+        return sln
 
     def __repr__(self):
         """Code representation of instance"""
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        hei = str(self.__height)
+        wid = str(self.__width)
+        sln = "Rectangle(" + wid + ", " + hei + ")"
+        return sln
 
     def __del__(self):
         """Delete instance"""
