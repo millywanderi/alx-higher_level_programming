@@ -1,0 +1,59 @@
+Tests for the add_integer module
+================================
+>>> add_integer = __import__('0-add_integer').add_integer
+
+check if both values are integers
+>>> add_integer(2, 3)
+5
+
+>>> add_integer(10, -1)
+9
+
+Always returns an integer
+>>> add_integer(1.1, 1.1)
+2
+
+>>> add_integer(4.1, 4)
+8
+
+Second argument which is optional
+>>> add_integer(0,)
+98
+
+>>> add_integer(0)
+98
+
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required posistional argument: 'a'
+
+check the type
+>>> type(add_integer(4, 3))
+<class 'int'>
+
+Inputing incorrect type of errors
+>>> add_integer('hi', 2)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(1, 'three')
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer(None, None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(float('MaN'), 3)
+Traceback (most recent call last):
+...
+ValueError: cannot convert float MaN to integer
+
+>>> add_integer(sloat("inf"), 4)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
