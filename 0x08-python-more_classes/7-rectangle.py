@@ -60,14 +60,13 @@ class Rectangle:
 
     def __str__(self):
         """clas object represented by a string"""
+        sln = ""
         if self.__width == 0 or self.__height == 0:
-            return ''
+            return sln
         else:
-            sln = ""
-            for m in range(self.__height - 1):
-                sln += ("#" * self.__width) + '\n'
-            sln += "#" * self.__width
-        return sln
+            for m in range(self.__height):
+                sln += (str(self.print_symbol) * self.__width) + '\n'
+                return sln[:-1]
 
     def __repr__(self):
         """Code representation of instance"""
