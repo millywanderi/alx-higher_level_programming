@@ -6,44 +6,56 @@ This module resolves the N-Queen puzzle using backtracting
 """
 
 
-if __name__ == "___main__":
-    import sys
+from sys import argv
 
-
-def main():
-    argue = sys.argv
-    if len(argue) != 2:
+if __name__ == "__main__":
+    m = []
+    if len(argv) != 2:
         print("Usage: nqueens N")
-        sys.exit(1)
-
-    m = args[1]
-    # m must be >= int 4
-    if type(m) is not int:
+        exit(1)
+    if argv[1].isdigit() is False:
         print("N must be a number")
-        sys.exit(1)
-
-    if m < 4:
+        exit(1)
+    n = int(argv[1])
+    if n < 4:
         print("N must be at least 4")
-        sys.exit(1)
+        exit(1)
 
-    # board creation
-    boardie = [[0 for colum in range(m)] for row in range(m)]
-    for row in range(m):
-        place = 0
-        while place < m:
-            if check_place(boardie, [row, colum]) is True:
-                # place the queen
-                place += 1
+    for j in range(n):
+        m.append([j, None])
 
-        print_bordie
-    return 0
+    def ready_exist(h):
+        """check the queen already exist"""
+        for x in range(n):
+            if h == m[x][1]:
+                return True
+        return False
 
+    def rejectie(x, h):
+        """determines whether or not the solution will reject"""
+        if (ready_exist(h)):
+            return False
+        j = 0
+        while (j < x):
+            if abs(m[j][1] - h) == abs(j - x):
+                return False
+            j += 1
+        return True
 
-def check_place(boardie, posi):
-    """Check position to place the queen"""
-    # check diagonal
-    # check columns
+    def clear_m(x):
+        """clears from the failure"""
+        for j in range(x, n):
+            m[j][1] = None
 
+    def nqueens(x):
+        """recurssive backtracking"""
+        for h in range(n):
+            clear_m(x)
+            if rejectie(x, h):
+                m[x][1] = h
+                if (x == n - 1):
+                    print(a)
+                else:
+                    nqueens(x + 1)
 
-def print_boardie():
-    """Print board for positioning the queen safely"""
+    nqueens(0)
