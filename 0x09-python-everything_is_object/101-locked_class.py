@@ -5,8 +5,5 @@
 
 
 class LockedClass:
-    __slots__ = 'first_name'
-
-    def __init__(self):
-        """Init method"""
-        pass
+    """class of locked class"""
+    __slots__ = ('first_name')
