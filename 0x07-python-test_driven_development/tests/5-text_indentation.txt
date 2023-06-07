@@ -1,0 +1,29 @@
+Import module
+-------------
+>>> text_identation = __import__('5-text_identation').text_identation
+
+Text string
+-----------
+>>> text_identation("	M N.	Q R?	A B:	C D	")
+M N.
+<BLACKLINE>
+Q R?
+<BLACKLINE>
+A B:
+<BLACKLINE>
+C D
+
+>>> text_identation("	Hello"	)
+Hello
+
+>>> text_identation("	Hey	\n	.	")
+Hey
+.
+<BLACKLINE>
+
+Text with other data types
+--------------------------
+>>> text_identation(-2)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
