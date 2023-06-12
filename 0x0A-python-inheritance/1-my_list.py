@@ -4,6 +4,10 @@
 
 class MyList(list):
     """Class inheriting from list"""
+    def __init__(self):
+        """initializes the object"""
+        super().__init__()
+
     def print_sorted(self):
-        """sorts a lists in an ascending order"""
+        """sorts and prints list in an ascending order"""
         print(sorted(self))
