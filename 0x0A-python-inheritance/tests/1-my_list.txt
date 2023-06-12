@@ -5,56 +5,26 @@ Import module
 -------------
 >>> MyList = __import__('1-my_list').MyList
 
-Sort a list containing of only integers
----------------------------------------
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
->>> my_list
-[1, 4, 2, 3, 5]
+Base behavior
+-------------
+>>> my_list = MyList([1, 4, 2, 3, 5])
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
->>> my_list.append(-5)
->>> my_list
-[1, 4, 2, 3, 5, -5]
->>> my_list.print_sorted()
-[1, 2, 3, 4, 5, -5]
 
->>> my_list.remove(-5)
->>> my_list.remove(1)
->>> my_list.remove(4)
->>> my_list.remove(2)
->>> my_list.remove(3)
->>> my_list.remove(5)
->>> my_list
-[]
+Non-integer list
+---------------
+>>> my_list = MyList(['seven', 'two', 'one'])
+>>> my_list.print_sorted()
+['one', 'two', 'seven']
+
+An empty list
+-------------
+>>> my_list = MyList([])
 >>> my_list.print_sorted()
 []
 
-sort a list containing a string type:
--------------------------------------
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
->>> my_list.append("m")
->>> my_list
-[1, 2, 3, 4, 5, 'm']
+A list that misses an argument
+------------------------------
+>>> my_list = MyList()
 >>> my_list.print_sorted()
-Traceback (most recent call last):
-...
-TypeError: you cannot mix instances of 'str' and 'int'
-
-Sort a list containing another list:
-------------------------------------
->>> my_list.remove("m")
->>> my_list.append([1, 7, 6])
->>> my_list
-[1, 2, 3, 4, 5, [1, 7, 6]]
->>> my_list.print_sorted()
-Traceback (most recent call last):
-...
-TypeError: you cannot write a list inside a list while sorting
+[]
