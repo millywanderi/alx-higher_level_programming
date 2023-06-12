@@ -6,8 +6,8 @@ class MyInt:
     """compares equality"""
     def __eq__(self, other):
         """reverse equal from not equal"""
-        return int(self) != int(other)
+        return int.__ne__(self, other)
 
     def __ne__(self, other):
         """reverse not equal if equal"""
-        return int(self) == int(other)
+        return int.__qe__(self, other)
