@@ -2,7 +2,7 @@
 """This is a student class module"""
 
 
-class Student:
+class Student():
     """Class defining a student"""
     def __init__(self, first_name, last_name, age):
         """Instances class student
