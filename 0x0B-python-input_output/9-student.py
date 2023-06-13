@@ -17,4 +17,4 @@ class Student:
 
     def class_to_json(obj):
         """a function that retrieves dictionary representation"""
-        return self.__dict__
+        return self.__dict__.copy()
