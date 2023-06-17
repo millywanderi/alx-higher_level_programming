@@ -24,7 +24,7 @@ class Rectangle(Base):
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
-            raise ValueError("width must be >= zero")
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -36,7 +36,7 @@ class Rectangle(Base):
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
-            raise ValueError("height must be >= zero")
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -48,7 +48,7 @@ class Rectangle(Base):
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
-            raise ValueError("x must be >= zero")
+            raise ValueError("x must be > 0")
         self.__x = value
 
     @property
@@ -60,7 +60,7 @@ class Rectangle(Base):
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
-            raise ValueError("y must be >= zero")
+            raise ValueError("y must be > 0")
         self.__y = value
 
     def area(self):
@@ -82,17 +82,33 @@ class Rectangle(Base):
         s = str(self.__height)
         return ("[Rectangle] (" + m + ") " + n + "/" + p + " - " + q + "/" + s)
 
+    def update(self, *args, **kwargs):
+        length = len(args)
+        if length > 0 and args is not None:
+            for a, arg in enumerate(args):
+                if a == 0:
+                    self.id = arg
+                if a == 1:
+                    self.width = arg
+                if a == 2:
+                    self.height = arg
+                if a == 3:
+                    self.x = arg
+                if a == 4:
+                    self.y = arg
+        else:
+            self.id = kwargs.get("id", self.id)
+            self.width = kwargs.get("width", self.width)
+            self.height = kwargs.get("height", self.height)
+            self.x = kwargs.get("x", self.x)
+            self.y = kwargs.get("y", self.y)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def to_dictionary(self):
+        dic = ({
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+            })
+        return dic
