@@ -50,7 +50,7 @@ class Base:
             new_cls = cls(1, 1)
         new_cls.update(**dictionary)
         return new_cls
-        
+
     @classmethod
     def load_from_file(cls):
         try:
@@ -71,7 +71,7 @@ class Base:
         for i in lists:
             new_lists.append(i.to_dictionary())
         keys = [[j for j in k.keys()] for k in new_lists]
-        
+
         with open(cls.__name__ + ".csv", "w", encoding="utf-8") as file:
             writing = csv.DictWriter(file, fieldnames=keys[0])
             writing.writeheader()
@@ -90,7 +90,7 @@ class Base:
                     for a, b in zip(key_value, n):
                         dic[a] = int(b)
                     lists.append(cls.create(**dic))
-        
+
         except IOError:
             return []
         return lists
