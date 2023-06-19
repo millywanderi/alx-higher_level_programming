@@ -13,7 +13,7 @@ from io import StringIO
 
 
 class TestRectangle(unittest.TestCase):
-    
+
     def test__constructor(self):
         r = Rectangle(4, 6)
 
@@ -37,14 +37,14 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(mock_stdout.getvalue(), exp_output)
 
     def test_update(self):
-         r = Rectangle(4, 6)
+        r = Rectangle(4, 6)
 
-         r.update(1, 2, 3, 4, 5)
-         self.assertEqual(r.id, 1)
-         self.assertEqual(r.width, 2)
-         self.assertEqual(r.height, 3)
-         self.assertEqual(r.x, 4)
-         self.assertEqual(r.y, 5)
+        r.update(1, 2, 3, 4, 5)
+        self.assertEqual(r.id, 1)
+        self.assertEqual(r.width, 2)
+        self.assertEqual(r.height, 3)
+        self.assertEqual(r.x, 4)
+        self.assertEqual(r.y, 5)
 
     def test_to_dictionary(self):
         r = Rectangle(4, 6, 2, 3, 1)
@@ -57,7 +57,7 @@ class TestRectangle(unittest.TestCase):
                 "y": 3
                 }
         self.assertEqual(r.to_dictionary(), dic)
-        
+
     def test_str(self):
         r = Rectangle(4, 6, 2, 3, 1)
 
