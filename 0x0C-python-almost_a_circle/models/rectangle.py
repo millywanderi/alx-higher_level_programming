@@ -8,7 +8,9 @@ from .base import Base
 
 
 class Rectangle(Base):
+    """Class Rectangle inherited from Base"""
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Initialization"""
         super().__init__(id)
         self.width = width
         self.height = height
@@ -17,10 +19,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """width getter"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """width setter"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -29,10 +33,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """height getter"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """height setter"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -41,10 +47,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """x getter"""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """x setter"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -53,10 +61,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """y getter"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """y setter"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -64,9 +74,11 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """Returns the area of the rectangle"""
         return self.__width * self.__height
 
     def display(self):
+        """prints # character as the Rectangle stdout"""
         for q in range(self.__y):
             print()
         for m in range(0, self.__height):
@@ -75,6 +87,7 @@ class Rectangle(Base):
             print("#" * self.__width)
 
     def __str__(self):
+        """prints the object"""
         m = str(self.id)
         n = str(self.__x)
         p = str(self.__y)
@@ -83,6 +96,7 @@ class Rectangle(Base):
         return ("[Rectangle] (" + m + ") " + n + "/" + p + " - " + q + "/" + s)
 
     def update(self, *args, **kwargs):
+        """assign attributes with arguments"""
         length = len(args)
         if length > 0 and args is not None:
             for a, arg in enumerate(args):
@@ -104,6 +118,7 @@ class Rectangle(Base):
             self.y = kwargs.get("y", self.y)
 
     def to_dictionary(self):
+        """Returns rectangle represented by a dictionary"""
         dic = ({
             "id": self.id,
             "width": self.width,
