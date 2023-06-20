@@ -8,10 +8,12 @@ import csv
 
 
 class Base:
+    """Base class"""
 
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Initialization"""
         if id is not None:
             self.id = id
         else:
@@ -20,6 +22,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """Returns a Json string"""
         if list_dictionaries is None:
             return "[]"
         dictionaries = json.dumps(list_dictionaries)
@@ -27,6 +30,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """Writes a Json string"""
         if list_objs is None:
             list_objs = []
         saving = []
@@ -37,6 +41,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """Returns the lists of Json string"""
         if json_string is None:
             return []
         dic = json.loads(json_string)
@@ -44,6 +49,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """Returns initialized attributes"""
         if cls.__name__ == "Rectangle":
             new_cls = cls(1, 1)
         else:
@@ -53,6 +59,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """Class method returning instances list"""
         try:
             with open(cls.__name__ + ".json") as file:
                 obj = cls.from_json_string(file.read())
@@ -64,6 +71,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """Class method that saves a CSV file"""
         lists = list_objs
         if not lists:
             lists = []
@@ -79,6 +87,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """Class method that load from the CSV file"""
         dic = {}
         lists = []
         try:
