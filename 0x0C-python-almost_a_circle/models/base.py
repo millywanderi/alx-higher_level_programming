@@ -50,7 +50,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Returns initialized attributes"""
-        if cls.__name__ == "Rectangle":
+        if cls.__name__ == "Square":
             new_cls = cls(1, 1)
         else:
             new_cls = cls(1, 1)
