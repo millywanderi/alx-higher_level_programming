@@ -12,5 +12,5 @@ LEFT JOIN
         WHERE tv_shows.title = "Dexter"
         ORDER BY tv_genres.id
 ) dexter_genres ON dexter_genres.id = tv_genres.id
-WHERE dexter_genres.id os NULL
+WHERE dexter_genres.id is NULL
 ORDER BY tv_genres.name;
