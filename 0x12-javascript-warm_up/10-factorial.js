@@ -1,11 +1,12 @@
 #!/usr/bin/node
 
-const m = parseInt(process.argv[2]);
-
 function factorialFind (m) {
-  if (!m) { return 1; }
-
-  if (m <= 0) { return; }
-  return factorialFind(m - 1) * m;
+  if (m < 0) {
+    return (-1);
+  }
+  if (m === 0 || isNaN(m)) {
+    return (1);
+  }
+  return (m * factorialFind(m - 1));
 }
-console.log(factorialFind(m));
+console.log(factorialFind(Number(process.argv[2])));
