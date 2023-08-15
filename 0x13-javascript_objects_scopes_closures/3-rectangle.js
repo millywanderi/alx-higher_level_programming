@@ -7,9 +7,12 @@ class Rectangle {
     }
   }
   print () {
-    const rect = 'X'.repeat(this.width);
     for (let m = 0; m < this.height; m++) {
-      console.log(rect);
+      let row = '';
+      for (let n = 0; n < this.width; n++) {
+        row += 'X';
+      }
+      console.log(row);
     }
   }
 }
