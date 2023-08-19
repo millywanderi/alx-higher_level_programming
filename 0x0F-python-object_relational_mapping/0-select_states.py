@@ -2,21 +2,18 @@
 """
 This script lists all states from database using MySQL
 """
-from sys import argv
-import MySQLdb
 
 if __name__ == '__main__':
 
-    dbUser = argv[1]
-    dbPasswd = argv[2]
-    dbName = argv[3]
+    import MySQLdb
+    import sys
 
     db = MySQLdb.connect(
         host='localhost',
         port=3306,
-        user=dbUser,
-        passwd=dbPasswd,
-        db=dbName
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
         )
 
     cursor = db.cursor()
