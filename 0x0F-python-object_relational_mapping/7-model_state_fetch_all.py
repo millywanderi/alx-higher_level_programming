@@ -12,10 +12,11 @@ if __name__ == "__main__":
     password = '{}'.format(sys.argv[2])
     db = '{}'.format(sys.argv[3])
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db))
+                           .format(username, password, db),
+                           pool_pre_ping=True)
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    for state in session.query(State).order_by(State.id):
+    sessionMaker = sessionmaker(bind=engine)
+    mySession = sessionMaker()
+    for state in mySession.query(State).order_by(State.id):
         print("{}:{}".format(state.id, state.name))
-    session.close()
+    mySession.close()
