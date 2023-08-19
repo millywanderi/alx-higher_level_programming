@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 
 """
 Module that list all states with a name starting
@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     cur = db.cursor()
     cur.execute("""SELECT * FROM states WHERE\
-                LIKE BINARY 'N%' ORDER BY states.id ASC""")
+               name LIKE BINARY 'N%' ORDER BY states.id ASC""")
 
     rows = cur.fetchall()
 
