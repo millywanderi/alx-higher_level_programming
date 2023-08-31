@@ -5,20 +5,29 @@
 def find_peak(list_of_integers):
     """function that find peak in unsorted list"""
     loi = list_of_integers
-    if loi is None or loi == []:
+    size = len(loi)
+
+    if size == 0:
         return None
-    lo = 0
-    hi = len(loi)
-    mid = ((hi - lo) // 2) + lo
-    mid = int(mid)
-    if hi == 1:
+
+    if size is 1:
         return loi[0]
-    if hi == 2:
-        return max(loi)
-    if loi[mid] >= loi[mid - 1] and \
-            loi[mid] >= loi[mid + 1]:
+
+    return recurse(loi, 0, size - 1)
+
+
+def recurse(loi, left, right):
+    """Recursive component"""
+    mid = int((left + right) / 2)
+
+    if left > right:
         return loi[mid]
-    if mid > 0 and loi[mid] < loi[mid - 1]:
-        return find_peak(loi[mid:])
-    if mid > 0 and loi[mid] < loi[mid - 1]:
-        return find_peak(loi[:mid])
+
+    if (mid == 0 or loi[mid] > loi[mid - 1]) and \
+            (mid == len(loi) - 1 or loi[mid] > loi[mid + 1]):
+        return loi[mid]
+
+    elif (mid > 0) and loi[mid - 1] > loi[mid]:
+        return recurse(loi, left, mid - 1)
+    else:
+        return recurse(loi, mid + 1, right)
