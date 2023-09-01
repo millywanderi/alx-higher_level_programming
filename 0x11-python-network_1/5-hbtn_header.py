@@ -4,8 +4,8 @@ value of the variable X-Request-Id in the response header
 """
 
 import requests
-import sys
+from sys import argv
 
 if __name__ == '__main__':
-    reque = requests.get(sys.argv[1])
-    print(reque.headers.get['X-Request-Id'])
+    reque = requests.get(argv[1])
+    print(reque.headers.get("X-Request-Id"))
