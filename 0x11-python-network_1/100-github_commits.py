@@ -4,14 +4,14 @@ from sys import argv
 import requests
 
 if __name__ == '__main__':
-    repo = argv[1]
-    owner = argv[2]
 
-    url = 'https://api.github.com/repos/{}/{}/\
-            commits?per_page=10'.format(owner, repo)
-    r = requests.get(url)
-    r = r.json()
-
-    for commit in r:
-        print('{}: {}'.format(commit.get('sha'),
-                              commit.get('commit').get('author').get('name')))
+    url = 'https://api.github.com/repos/{}/{}/commits'.format(
+        argv[2], argv[1])
+    try:
+        respo = requests.get(url)
+        resDict = respo.json()
+        for i in range(0, 10):
+            print("{}: {}".format(resDict[i].get('sha'), resDict[i].get(
+                'commit').get('author').get('name')))
+    except Exception:
+        pass
