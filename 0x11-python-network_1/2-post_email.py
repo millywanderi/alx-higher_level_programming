@@ -3,16 +3,13 @@
 passed URL with the email as parameter, and displays the body of the response
 """
 import urllib.request
-import urllib.parse
-import sys
+from sys import argv
 
 if __name__ == '__main__':
-    url = sys.argv[1]
-    email = {'email': sys.argv[2]}
+    url = argv[1]
+    emailData = {"email": argv[2]}
+    data = urllib.parse.urlencode(emailData).encode("ascii")
 
-    email = urllib.parse.urlencode(email)
-    reque = urllib.request.Request(url, email)
+    reque = urllib.request.Request(url, data)
     with urllib.request.urlopen(reque) as response:
-        response = response.read()
-        response = response.decode('utf-8')
-        print(response)
+        print(response.read().decode("utf-8"))
