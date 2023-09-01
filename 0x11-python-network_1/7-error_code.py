@@ -11,7 +11,7 @@ __name__ == '__main__':
     url = sys.argv[1]
     reque = requests.get(url)
 
-    if reque.statusCode >= 400:
-        print(f"Error code: {reque.statusCode}")
+    if reque.status_code >= 400:
+        print(f"Error code: {}".format(reque.status_code))
     else:
         print(reque.text)
