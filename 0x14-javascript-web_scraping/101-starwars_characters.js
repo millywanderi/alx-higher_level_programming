@@ -13,11 +13,11 @@ request(url, async (error, response, body) => {
       request(charURL, (err, m, body) => {
         if (err) {
 	  reject(err);
-	} else {
+        } else {
 	  const jsonBody = JSON.parse(body);
 	  console.log(jsonBody.name);
 	  resolve();
-	}
+        }
       });
     });
   }
