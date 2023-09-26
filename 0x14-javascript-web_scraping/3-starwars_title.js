@@ -9,4 +9,3 @@ request(url, (error, response, body) => {
   const jsonBody = JSON.parse(body);
   console.log(jsonBody.title);
 });
- 
