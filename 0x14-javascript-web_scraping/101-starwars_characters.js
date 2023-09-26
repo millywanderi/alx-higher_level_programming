@@ -12,11 +12,11 @@ request(url, async (error, response, body) => {
     await new Promise((resolve, reject) => {
       request(charURL, (err, m, body) => {
         if (err) {
-	  reject(err);
+          reject(err);
         } else {
-	  const jsonBody = JSON.parse(body);
-	  console.log(jsonBody.name);
-	  resolve();
+          const jsonBody = JSON.parse(body);
+          console.log(jsonBody.name);
+          resolve();
         }
       });
     });
