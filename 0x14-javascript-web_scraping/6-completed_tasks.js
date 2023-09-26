@@ -5,7 +5,7 @@ const url = process.argv[2];
 
 request(url, (error, response, body) => {
   if (error) { console.log(error); }
-  
+
   const completed = {};
   const jsonBody = JSON.parse(body);
   for (const task of jsonBody) {
